@@ -43,7 +43,8 @@ function App() {
         const ref = reader.result;
 
         if (len <= 1) {
-          setBlob([ref]);
+          setBlob([ref])
+          setBlobSetted(true);;
         } else {
           const length = ref.length;
           const arr = [];
