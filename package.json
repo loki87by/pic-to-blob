@@ -1,5 +1,6 @@
 {
   "name": "pic-to-blob",
+  "homepage": "https://loki87by.github.io/pic-to-blob/",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
