@@ -62,11 +62,13 @@ function App() {
           const length = ref.length;
           const arr = [];
 
+          console.log(ref.length, ref[ref.length - 1])
           for (let i = 0; i < len; i++) {
             const target = ref.slice(
               i * Math.ceil(length / len),
               (i + 1) * Math.ceil(length / len) - 1
             );
+            console.log(target, target.length - 1)
             arr.push(target);
           }
           setBlob(arr);
