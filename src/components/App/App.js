@@ -19,6 +19,19 @@ function App() {
 
   const copyData = useCallback(
     (index) => {
+      /* const sqrt = Math.sqrt(blob[index].length)
+      const frLen = Math.ceil(blob[index].length / sqrt)
+      const arr = []
+
+      for (let i = 0; i < sqrt; i++) {
+        arr.push(blob[index].slice(i * frLen, (i + 1) * frLen - 1))
+      }
+
+      if(blob[index].slice(sqrt * frLen).length > 0) {
+        arr.push(blob[index].slice(sqrt * frLen))
+      }
+      console.log(arr, blob[index].slice(-10))
+      const ja = JSON.stringify(arr) */
       clipboard.copy(blob[index]);
     },
     [blob, clipboard]
@@ -33,7 +46,7 @@ function App() {
     img.onload = function () {
       const type = file.type;
       setFileType(type);
-      const len = Math.ceil(file.size / 1024000);
+      const len = Math.floor(file.size / 1000000);
       var binaryData = [];
       binaryData.push(file);
       const url = new Blob(binaryData, { type: type });
