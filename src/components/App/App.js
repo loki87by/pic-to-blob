@@ -46,7 +46,7 @@ function App() {
     img.onload = function () {
       const type = file.type;
       setFileType(type);
-      const len = Math.floor(file.size / 1000000);
+      const len = Math.floor(file.size / 800000);
       var binaryData = [];
       binaryData.push(file);
       const url = new Blob(binaryData, { type: type });
@@ -55,20 +55,18 @@ function App() {
       reader.onload = function () {
         const ref = reader.result;
 
-        if (len <= 1) {
+        if (len < 1) {
           setBlob([ref])
           setBlobSetted(true);;
         } else {
           const length = ref.length;
           const arr = [];
 
-          console.log(ref.length, ref[ref.length - 1])
-          for (let i = 0; i < len; i++) {
+          for (let i = 0; i <= len; i++) {
             const target = ref.slice(
-              i * Math.ceil(length / len),
-              (i + 1) * Math.ceil(length / len) - 1
+              i * Math.ceil(length / (len + 1)),
+              (i + 1) * Math.ceil(length / (len + 1)) - 1
             );
-            console.log(target, target.length - 1)
             arr.push(target);
           }
           setBlob(arr);
